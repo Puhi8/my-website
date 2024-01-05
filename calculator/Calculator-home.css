@@ -1,0 +1,103 @@
+a{
+	text-decoration:none;
+	color:#000;
+}
+h1{
+	color: rgb(204, 255, 18);
+	text-decoration: underline;
+	text-align: center;
+	font-size: 60px;
+}
+body{
+	background-image: url(img/math_background.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+p{
+	display: block;
+	bottom: 0px;
+	font-size: 45px;
+	font-weight: bold;
+	color: #000;
+}
+
+/*distribution general*/
+.box{
+	display: flex;
+	justify-content: space-around;
+}
+.Link{
+	display: block;
+	background-color: #aaa;
+	text-align: center;
+	padding: 1%;
+	border-width: 10px;
+	transition: all 1s;
+}
+/*distribution individual*/
+.Link.home{
+	display: block;
+	height: calc(100% / 3);
+	width: calc(100% / 3);
+	border-radius: 20px;
+	border: #111 outset;
+}
+.Link.liki{
+	height: 25%;
+	width: 25%;
+	min-width: 350px;
+	border-radius: 20px;
+	border: #111 outset;
+}
+
+/*link:hovor*/
+.Link.home:hover{
+		box-shadow: 10px 10px 10px #fff, 20px 20px 20px #888;	
+}
+.Link.liki:hover{
+	box-shadow: 10px 10px 10px #20f, 20px 20px 20px #109;	
+}
+
+/*IMG*/
+.LinkIMG{
+	width: 80% ;
+	height: auto;
+}
+.LinkIMG.cube{
+	rotate: -1deg;
+}
+/*button input*/
+.calculate{
+	width: auto;
+	height: auto;
+	color: #000;
+	border-radius: 10px;
+	background-color: #888;
+}
+.input{
+	height: 50px;
+	width: 250px;
+	border-radius: 4px;
+	border: #aaa solid;
+	border-width: 2px; 
+}
+.input.top{
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+.input.bottom{
+	border-bottom-left-radius: 15px;
+	border-bottom-right-radius: 15px;
+}
+.reset{
+    background-color: #888;
+}
+/*label*/
+.label{
+	margin-top: 50px;
+	padding: 5px;
+	color: #fff;
+	border: #fff solid;
+	border-radius: 20px;
+}
