@@ -1,0 +1,23 @@
+body{
+    background-color: #000;
+}
+.items{
+    margin-left: 42%;
+    margin-right: auto;
+    color: #fff;
+}
+table{
+    margin-left: 38%;
+    margin-right: auto;
+}
+th{
+    width: 40px;
+    height: 20px;
+    font-size: 18px;
+    color: #000;
+    border-radius: 9px;
+    border-style: solid;
+    border-color: #fff;
+    border-width: 1px;
+
+}

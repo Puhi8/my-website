@@ -19,7 +19,7 @@ var povrsina = 0;
 var volumen = 0;
 var visinaTelesa = 0;
 var decimalPlaces = 0;
-var data = [a, b, c, d, f, e, r, premer, visina, obseg, osnovnaPloskev, povrsina, volumen, visinaTelesa];
+//var data = [a, b, c, d, f, e, r, premer, visina, obseg, osnovnaPloskev, povrsina, volumen, visinaTelesa];
 
 function GetDecimalPaces(){
     if (document.getElementById("decimal") == "") {decimalPlaces = 1}

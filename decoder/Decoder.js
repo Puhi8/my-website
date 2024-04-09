@@ -1,4 +1,3 @@
-function decode(){
 var output= []
 var decodeMap = new Map([
         ["a","alpha"],
@@ -28,7 +27,9 @@ var decodeMap = new Map([
         ["y", "yankee"],
         ["z", "zulu"],
         [" ", "space in between"]
-    ])
+      ])
+      
+function decode(){
 var data = document.getElementById("Word").value
 if (data == ""){
     consol.log("error")

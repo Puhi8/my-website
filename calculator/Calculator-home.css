@@ -50,6 +50,13 @@ p{
 	border-radius: 20px;
 	border: #111 outset;
 }
+.Link.TriKotniki{
+	height: 25%;
+	width: 25%;
+	min-width: 350px;
+	border-radius: 20px;
+	border: #111 outset;
+}
 
 /*link:hovor*/
 .Link.home:hover{
