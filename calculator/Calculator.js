@@ -1,90 +1,150 @@
 const pi = Math.PI;
 const koren3 = Math.sqrt(3)
-var a = 0;
-var b = 0;
-var c = 0;
-var d = 0;
-var e = 0;
-var f = 0;
-var r = 0;
-var Alfa = 0;
-var Beta = 0;
-var Gama = 0;
-var Delta = 0;
-var premer = 0;
-var visina = 0;
-var obseg = 0;
-var osnovnaPloskev = 0;
-var povrsina = 0;
-var volumen = 0;
-var visinaTelesa = 0;
-var decimalPlaces = 0;
-//var data = [a, b, c, d, f, e, r, premer, visina, obseg, osnovnaPloskev, povrsina, volumen, visinaTelesa];
+let DataObject = {
+    "a":0,
+    "b":0,
+    "c":0,
+    "d":0,
+    "e":0,
+    "f":0,
+    "r":0,
+    "Alfa":0,
+    "Beta":0,
+    "Gama":0,
+    "Delta":0,
+    "premer":0,
+    "visina":0,
+    "obseg":0,
+    "osnovnaPloskev":0,
+    "povrsina":0,
+    "volumen":0,
+    "visinaTelesa":0
+
+}
+var a 
+var b  
+var c  
+var d  
+var e  
+var f  
+var r  
+var Alfa  
+var Beta  
+var Gama  
+var Delta  
+var premer  
+var visina  
+var obseg  
+var osnovnaPloskev  
+var povrsina  
+var volumen  
+var visinaTelesa
+var decimalPlaces
 
 function GetDecimalPaces(){
-    if (document.getElementById("decimal") == "") {decimalPlaces = 1}
-    else {decimalPlaces = Number(document.getElementById("decimal").value)}
+    if (document.getElementById("decimal") == "") {return 1}
+        else {return Number(document.getElementById("decimal").value)}
 }
 function decimalRound(x , numberOfDecimal){
     decimal = 10**numberOfDecimal
     return Math.round(x*decimal)/decimal
 }
+function getDataFor(NameArrey, veriablesArrey){
+    for(let i=0; i<veriablesArrey.length;i++){
+        let name = NameArrey[i]
+        let veriable = veriablesArrey[i]
+        let element = document.getElementById(name)
+        if(element == "") {DataObject[veriable] = 0}
+            else{DataObject[veriable] = element.value}
+    }
+}
+function ConvertDataFromObjectToVeriables(){
+    a = DataObject["a"]
+    b = DataObject["b"]
+    c = DataObject["c"]
+    d = DataObject["d"]
+    e = DataObject["e"]
+    f = DataObject["f"]
+    r = DataObject["r"]
+    Alfa = DataObject["Alpha"]
+    Beta = DataObject["Beta"]
+    Gama = DataObject["Gama"]
+    Delta = DataObject["Delta"]
+    premer = DataObject["premer"]
+    visina = DataObject["visina"]
+    obseg = DataObject["obseg"]
+    osnovnaPloskev = DataObject["osnovnaPloskev"]
+    povrsina = DataObject["povrsina"]
+    volumen = DataObject["volumen"]
+    visinaTelesa = DataObject["visinatelesa"]
+}
+function ConvertDataFromVeriablesToObject(){
+    DataObject["a"] = a
+    DataObject["b"] = b
+    DataObject["c"] = c
+    DataObject["d"] = d
+    DataObject["e"] = e
+    DataObject["f"] = f
+    DataObject["r"] = r
+    DataObject["Alpha"] = Alfa
+    DataObject["Beta"] = Beta
+    DataObject["Gama"] = Gama
+    DataObject["Delta"] = Delta
+    DataObject["premer"] = premer
+    DataObject["visina"] = visina
+    DataObject["obseg"] = obseg
+    DataObject["osnovnaPloskev"] = osnovnaPloskev
+    DataObject["povrsina"] = povrsina
+    DataObject["volumen"] = volumen
+    DataObject["visinatelesa"] = visinaTelesa
+}
+function OutputData(NameArrey, veriablesArrey){
+    for(let i=0;i<veriablesArrey.length;i++){
+        let name = NameArrey[i]
+        let veriable = veriablesArrey[i]
+        document.getElementById(name).value = decimalRound(DataObject[veriable], GetDecimalPaces())
+    }
+}
+
 
 function krog(){
-    if (document.getElementById("polmer_krog") == "" ) {r = 0;}
-        else {r = document.getElementById("polmer_krog").value}
-    if (document.getElementById("premer_krog") == "" ) {d = 0;}
-        else {d = document.getElementById("premer_krog").value}
-    if (document.getElementById("obseg_krog") == "" ) {obseg = 0;}
-        else {obseg = document.getElementById("obseg_krog").value}
-    if (document.getElementById("osnovnaPloskev_krog") == "" ) {osnovnaPloskev = 0;}
-        else {osnovnaPloskev = document.getElementById("osnovnaPloskev_krog").value}
-    GetDecimalPaces()
-
+    var NeadedData = ["r", "premer", "osnovnaPloskev", "obseg"]
+    var dataInHTML = ["polmer", "premer", "osnovnaPloskev", "obseg"]
+    getDataFor(dataInHTML, NeadedData)
+    ConvertDataFromObjectToVeriables()
     if (r > 0){
-        d = r*2 
+        premer= r*2 
         obseg = 2*pi*r
         osnovnaPloskev = pi*(r*r) 
     }
-    else if (d > 0){
-        r = d / 2
+    else if (premer> 0){
+        r = premer/ 2
         obseg = 2 * pi * r
         osnovnaPloskev = pi * (r*r)
     }
     else if (obseg > 0){
         r = obseg / (2 *pi)
-        d = r * 2
+        premer= r * 2
         osnovnaPloskev = pi * (r*r)
     }
     else if(osnovnaPloskev > 0){
         r = Math.sqrt(osnovnaPloskev / pi)
-        d = r * 2 
+        premer= r * 2 
         obseg = 2 * pi * r
     }
-    document.getElementById("polmer_krog").value = decimalRound(r, (decimalPlaces+1)) 
-    document.getElementById("premer_krog").value = decimalRound(d, (decimalPlaces+1)) 
-    document.getElementById("obseg_krog").value = decimalRound(obseg, decimalPlaces)
-    document.getElementById("osnovnaPloskev_krog").value = decimalRound(osnovnaPloskev, decimalPlaces)
-    
+    ConvertDataFromVeriablesToObject
+    OutputData(dataInHTML, NeadedData)
 }
-function krozniLok(){
-
-}
+//function krozniLok(){}
 function enakostranicni_3kotnik(){
-    if(document.getElementById("StranicaA_Enakostranicni3-kotnik") == "") {a = 0}
-        else{a = Number(document.getElementById("StranicaA_Enakostranicni3-kotnik").value)}
-    if(document.getElementById("Visina_Enakostranicni3-kotnik") == "") {visina = 0}
-        else{visina = Number(document.getElementById("Visina_Enakostranicni3-kotnik").value)}
-    if(document.getElementById("Obseg_Enakostranicni3-kotnik") == "") {obseg = 0}
-        else{obseg = Number(document.getElementById("Obseg_Enakostranicni3-kotnik").value)}
-    if(document.getElementById("OsnovnaPloskev_Enakostranicni3-kotnik") == "") {osnovnaPloskev = 0}
-        else{osnovnaPloskev = Number(document.getElementById("OsnovnaPloskev_Enakostranicni3-kotnik").value)}
-    GetDecimalPaces()
-
+    var NeadedData = ["a","visina","obseg","osnovnaPloskev"]
+    var dataInHTML = ["StranicaA","Visina","Obseg","OsnovnaPloskev"]
+    getDataFor(dataInHTML,NeadedData)
+    ConvertDataFromObjectToVeriables()
     if (a > 0){
         visina = (a * koren3) / 2
         obseg = a * 3
-        osnovnaPloskev = ((a * a) * koren3) / 4
+        osnovnaPloskev = ((a*a)*koren3) / 4
     }
     else if (visina > 0){
         a = (2 * visina) / koren3
@@ -101,25 +161,14 @@ function enakostranicni_3kotnik(){
         visina = (a * koren3) / 2
         obseg = a * 3
     }
-
-    document.getElementById("StranicaA_Enakostranicni3-kotnik").value = decimalRound(a, decimalPlaces)
-    document.getElementById("Visina_Enakostranicni3-kotnik").value = decimalRound(visina, (decimalPlaces))
-    document.getElementById("Obseg_Enakostranicni3-kotnik").value = decimalRound(obseg, decimalPlaces)
-    document.getElementById("OsnovnaPloskev_Enakostranicni3-kotnik").value = decimalRound(osnovnaPloskev, decimalPlaces)
+    ConvertDataFromVeriablesToObject()
+    OutputData(dataInHTML,NeadedData)
 }
 function pravokotni_3kotnik(){
-    if(document.getElementById("StranicaA_Pravokotni3-kotnik") == "") {a = 0}
-        else{a = Number(document.getElementById("StranicaA_Pravokotni3-kotnik").value)}
-    if(document.getElementById("StranicaB_Pravokotni3-kotnik") == "") {b = 0}
-        else{b = Number(document.getElementById("StranicaB_Pravokotni3-kotnik").value)}
-    if(document.getElementById("StranicaC_Pravokotni3-kotnik") == "") {c = 0}
-        else{c = Number(document.getElementById("StranicaC_Pravokotni3-kotnik").value)}
-    if(document.getElementById("Obseg_Pravokotni3-kotnik") == ""){obseg = 0}
-        else{obseg = Number(document.getElementById("Obseg_Pravokotni3-kotnik").value)}
-    if(document.getElementById("OsnovnaPloskev_Pravokotni3-kotnik") == "") {osnovnaPloskev = 0}
-        else(osnovnaPloskev = Number(document.getElementById("OsnovnaPloskev_Pravokotni3-kotnik").value))
-    GetDecimalPaces()
-
+    var NeadedData = ["a","b","c","obseg","osnovnaPloskev"]
+    var dataInHTML = ["StranicaA","StranicaB","StranicaC","Obseg","OsnovnaPloskev"]
+    getDataFor(dataInHTML,NeadedData)
+    ConvertDataFromObjectToVeriables()
     if (a>0 && b>0){
         c = Math.sqrt(a*a + b*b)
         obseg = a+b+c
@@ -165,12 +214,8 @@ function pravokotni_3kotnik(){
         b = Math.sqrt(c*c - a*a)
         obseg = a+b+c
     }
-    document.getElementById("StranicaA_Pravokotni3-kotnik").value = decimalRound(a, (decimalPlaces+1))
-    document.getElementById("StranicaB_Pravokotni3-kotnik").value = decimalRound(b, (decimalPlaces+1))
-    document.getElementById("StranicaC_Pravokotni3-kotnik").value = decimalRound(c, (decimalPlaces+1))
-    document.getElementById("Obseg_Pravokotni3-kotnik").value = decimalRound(obseg, decimalPlaces)
-    document.getElementById("OsnovnaPloskev_Pravokotni3-kotnik").value = decimalRound(osnovnaPloskev, decimalPlaces)
-
+    ConvertDataFromVeriablesToObject()
+    OutputData(dataInHTML,NeadedData)
 }
 function enakokraki_3kotnik(){
     if(a>0 && obseg>0){
@@ -181,29 +226,30 @@ function enakokraki_3kotnik(){
 
 }
 function kvadrat(){
-
-    let diagonala = 0
-    if (f > 0){diagonala = f}
-    else if (e > 0){diagonala = e}
-
+    var dataInHTML = ["Stranica","Diagonala","Obseg","OsnovnaPloskev"]
+    var NeadedData = ["a","e","obseg","osnovnaPloskev"]
+    getDataFor(dataInHTML,NeadedData)
+    ConvertDataFromObjectToVeriables()
     if (a > 0){
-        diagonala = a * koren3
+        e = a * koren3
         obseg = a * 4
         osnovnaPloskev = a * a 
     }
-    else if (f > 0){
-        a = diagonala / koren3
+    else if (e > 0){
+        a = e / koren3
         obseg = a * 4
         osnovnaPloskev = a * a 
     }
     else if (obseg > 0){
         a = obseg / 4
-        diagonala = a * koren3
+        e = a * koren3
         osnovnaPloskev = a * a 
     }
     else if (osnovnaPloskev > 0){
         a = Math.sqrt(osnovnaPloskev)
-        diagonala = a * koren3
+        e = a * koren3
         obseg = a * 4
     }
+    ConvertDataFromVeriablesToObject()
+    OutputData(dataInHTML,NeadedData)
 }

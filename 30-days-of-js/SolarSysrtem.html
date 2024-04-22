@@ -6,16 +6,24 @@
     <script src="SolarSysrtem.js"></script>
 </head>
 <body>
-    <select name="Planet" id="Planets">
-        <option value="mercury">Mercury</option>
-        <option value="venus">Venus</option>
-        <option value="earth">Earth</option>
-        <option value="mars">Mars</option>
-        <option value="jupiter">Jupiter</option>
-        <option value="saturn">Saturn</option>
-        <option value="uranus">Uranus</option>
-        <option value="neptun">Neptun</option>
-    </select>
-    <input id="planetInfo" type="submit" value="submit">
+    <div class="main-div">
+        <h1>Solar system mass calculator</h1>
+        <div class="item-div">
+            <input type="number" id="mass" placeholder="Put the mass in kg">
+            <select name="Planet" id="Planets">
+                <option value="mercury">Mercury</option>
+                <option value="venus">Venus</option>
+                <option value="earth">Earth</option>
+                <option value="mars">Mars</option>
+                <option value="jupiter">Jupiter</option>
+                <option value="saturn">Saturn</option>
+                <option value="uranus">Uranus</option>
+                <option value="neptune">Neptune</option>
+            </select>
+            <button onclick="go()">GO</button>
+        </div> 
+            <img id="picture">
+            <div id="outputDiv"><p class="output" id="output"></p></div>
+    </div>
 </body>
 </html>

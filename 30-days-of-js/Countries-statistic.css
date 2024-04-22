@@ -1,0 +1,63 @@
+body{
+    min-width: 450px;
+}
+h1{
+    text-align: center;
+    margin-bottom: 10px;
+}
+.description{
+    text-align: center;
+    margin-bottom: 50px;
+}
+table{
+    width: 100%;
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 30px;
+    border-color: #0cc;
+    border-width: 10px;
+    border-style: solid;
+}
+td{
+    align-content: center;
+    text-align: center;
+}
+#Name{
+    width: 80px;
+}
+#Number{
+    width: 80px;
+}
+.div-ready{
+    height: 19px;
+    background-color: #00F;
+}
+.Population{
+    margin-right: 13px;
+}
+.input-div{
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #fc2;
+    border-color: #444;
+    border-radius: 9px;
+    border-style:solid;
+}
+.button-div{
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    
+}
+.checkbox-div{
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}

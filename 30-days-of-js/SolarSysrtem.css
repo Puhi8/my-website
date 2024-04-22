@@ -1,0 +1,70 @@
+body{
+    background-image: url("images-solar/galaxy.gif");
+}
+h1{
+    color: #fff;
+    font-size: 40px;
+    margin-top: 0px;
+}
+#mass{
+    border-radius: 20px;
+    border-width: 1px;
+    width: 300px;
+    height: 35px;
+    margin-right: 20px;
+}
+#Planets{
+    height: 35px;
+    width: 70px;
+    margin-right: 20px;
+}
+select{
+    border-radius: 4px;
+}
+button{
+    border-radius: 4px;
+    transition: all 1s;
+    width: 50px;
+    height: 35px;
+    background-color: rgb(220, 252, 220);
+}
+button:hover{
+    background-color: #afa;
+}
+.main-div{
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    background-color: rgba(131,131,131,0.4);
+    border-radius: 40px;
+    padding: 40px;
+}
+.item-div{
+    max-width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+}
+#picture{
+    margin-top: 20px;
+}
+.output{
+    max-width: fit-content;
+    font-size: 40px;
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+}
+.output-div{
+    display: block;
+    align-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(131,131,131,0.4);
+    border-radius: 100px;
+    overflow: hidden;
+}

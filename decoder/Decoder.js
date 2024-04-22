@@ -28,19 +28,19 @@ var decodeMap = new Map([
         ["z", "zulu"],
         [" ", "space in between"]
       ])
-      
+    
 function decode(){
-var data = document.getElementById("Word").value
-if (data == ""){
-    consol.log("error")
+  var data = document.getElementById("Word").value
+  if (data == ""){
+      consol.log("error")
+      }
+  else{
+    var arr = data.split("")
+  for(var i=0; i<arr.length;){
+    output.push(decodeMap.get(arr[i]))
+    i++
     }
-else{
-var arr = data.split("")
-for(var i=0; i<arr.length;){
-output.push(decodeMap.get(arr[i]))
-i++
-  }
-} 
-document.getElementById("output").textContent = output
-output = []
+  } 
+  document.getElementById("output").textContent = output
+  output = []
 }

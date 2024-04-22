@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<head>
+    <title>Countries-statistic</title>
+    <link rel="stylesheet" href="Countries-statistic.css">
+    <script src="Countries-statistic.js"></script>
+</head>
+<body>
+    <h1>Countries data</h1>
+    <p class="description">Show the population of a country or witch language is the most spoken</p>
+    <div class="input-div">
+        <div class="button-div">
+            <button onclick="Population()" class="Population">Population</button>
+            <button onclick="Languages()">Languages</button>
+        </div>
+        <div class="checkbox-div">
+            <label for="checkbox" id="ShowWorld-label">Do not include the world population</label>
+            <input type="checkbox" id="ShowWorld" onclick="Population()">
+        </div>
+    </div>
+
+    <table>
+        <tr class="heading">
+            <th id="Name">Country</th>
+            <th id="Graphical">Graphical display</th>
+            <th id="Number">Number</th>
+        </tr>
+        <tr>
+            <td id="Name1"></td>
+            <td><div id="Graphical1"></div></td>
+            <td id="Number1"></td>
+        </tr>
+        <tr>
+            <td id="Name2"></td>
+            <td><div id="Graphical2"></div></td>
+            <td id="Number2"></td>
+        </tr>
+        <tr>
+            <td id="Name3"></td>
+            <td><div id="Graphical3"></div></td>
+            <td id="Number3"></td>
+        </tr>
+        <tr>
+            <td id="Name4"></td>
+            <td><div id="Graphical4"></div></td>
+            <td id="Number4"></td>
+        </tr>
+        <tr>
+            <td id="Name5"></td>
+            <td><div id="Graphical5"></div></td>
+            <td id="Number5"></td>
+        </tr>
+        <tr>
+            <td id="Name6"></td>
+            <td><div id="Graphical6"></div></td>
+            <td id="Number6"></td>
+        </tr>
+        <tr>
+            <td id="Name7"></td>
+            <td><div id="Graphical7"></div></td>
+            <td id="Number7"></td>
+        </tr>
+        <tr>
+            <td id="Name8"></td>
+            <td><div id="Graphical8"></div></td>
+            <td id="Number8"></td>
+        </tr>
+        <tr>
+            <td id="Name9"></td>
+            <td><div id="Graphical9"></div></td>
+            <td id="Number9"></td>
+        </tr>
+        <tr>
+            <td id="Name10"></td>
+            <td><div id="Graphical10"></div></td>
+            <td id="Number10"></td>
+        </tr>
+    </table>
+</body>
+</html>
