@@ -17,8 +17,7 @@ function ClearStorage(){
 }
 
 function NumberItems(){
-    GetDataFromStorage()
-    
+    GetDataFromStorage()    
     try{
         let length = Data.length
         for(let i=0; i<(length);i++){
@@ -102,6 +101,9 @@ function NumberItems(){
 }
 function AddItem(){
     GetDataFromStorage()
+    if (!Data) {
+        Data = [];
+    }
     let FirstName = document.getElementById("FirstName").value
     let LastName = document.getElementById("LastName").value
     let Score = Number(document.getElementById("Score").value)
@@ -129,13 +131,12 @@ function AddItem(){
 //create an object 
     FirstName = FirstName.toUpperCase()
     LastName = LastName.toUpperCase()
-    let DataObject = {
+    Data.push({
         "FirstName":FirstName,
         "LastName":LastName,
         "Score":Score,
         "Time":TimeText
-    }
-    Data.push(DataObject)
+    })
     ExportDataToStorage()
 //clear
     document.getElementById("FirstName").value = ""
