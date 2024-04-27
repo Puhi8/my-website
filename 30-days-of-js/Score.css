@@ -1,0 +1,72 @@
+body{
+    min-width: 1000px;
+}
+h1{
+    text-align: center;
+}
+img{
+    width: 50px;
+    height: 50px;
+}
+.Item{
+    width: 70%;
+    height: 90px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 8px;
+    background-color: #e5c9c5;
+    border-radius: 30px;
+    border-width: 7px;
+    border-style: solid;
+    margin-top: 10px;
+}
+tr{
+    display: flex;
+}
+.push{
+    margin-left: auto;
+}
+.OperateButton{
+    margin-right: 20px;
+    border-radius: 30px;
+    padding: 5px;
+    background-color: #fff;
+    transition: all 350ms;
+}
+.ScoreData{
+    text-align: center;
+    min-width: 80px;
+    width: fit-content;
+    height: fit-content;
+    margin-left: 10px;
+    margin-top: 20px;
+    margin-bottom: auto;
+    font-weight: 500;
+}
+.TimeP{
+    position: absolute;
+    font-size: x-small;
+    color: #aaa;
+}
+.OperateButton:hover{
+    border-color: #c80;
+    border-style: solid;
+}
+.input{
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #099;
+    border-radius: 40px;
+    padding: 10px;
+    border-style: solid;
+    border-width: 5px;
+    justify-content: space-around;
+    width: 70%;
+}
+#warning{
+    color: #f00;
+    font-weight: 700;
+    font-size: x-large;
+    text-align: center;
+}

@@ -1,0 +1,26 @@
+body{
+    min-width: 1100px;
+}
+.Center-text{
+    text-align: center;
+}
+#Search{
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: 25px;
+}
+table{
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+td{
+    border-color: rgb(10, 127, 156);
+    border-width: 2px;
+    border-style: solid;
+    text-align: center;
+    font-size: 17px;
+    padding: 5px;
+}
