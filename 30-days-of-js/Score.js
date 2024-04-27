@@ -18,19 +18,28 @@ function ClearStorage(){
 
 function NumberItems(){
     GetDataFromStorage()
-//sort
-    let length = Data.length
-    for(let i=0; i<(length-1);i++){
-        let score1 = Data[i].Score
-        for(let j=0; j<length;j++){
-            let score2 = Data[j].Score
-            if(score1> score2){
-                Data.splice(j,0,Data[i])
-                break
+    
+    try{
+        let length = Data.length
+        for(let i=0; i<(length);i++){
+            let PutInArray
+            let score1 = Data[i].Score
+            for(let j=0; j<(length);j++){
+                let score2 = Data[j].Score
+                if(score1 > score2){
+                    Data.splice(j,0,Data[i])
+                    PutInArray = true
+                    break
+                }
             }
+        if(PutInArray){
+           Data.splice((i+1),1) 
         }
-        Data.splice((i+1),1)
+        }
     }
+    catch(err){console.log(err)}
+    ExportDataToStorage()
+    
     let Div = document.getElementById("ListOfScores")
     Div.innerHTML = ""
     if(Data.length == 0){return}
@@ -120,18 +129,18 @@ function AddItem(){
 //create an object 
     FirstName = FirstName.toUpperCase()
     LastName = LastName.toUpperCase()
-    let  DataObject = {
+    let DataObject = {
         "FirstName":FirstName,
         "LastName":LastName,
         "Score":Score,
         "Time":TimeText
     }
     Data.push(DataObject)
+    ExportDataToStorage()
 //clear
     document.getElementById("FirstName").value = ""
     document.getElementById("LastName").value = ""
     document.getElementById('Score').value = ""
-    ExportDataToStorage()
     NumberItems()
 }
 
@@ -147,6 +156,7 @@ function DelateItem(NumberInArray){
 function Add5(NumberInArray){
     let ScoreMultiply = Number(document.getElementById("ScoreMultiply").value)
     if(ScoreMultiply == 0){ScoreMultiply = 1}
+    //console.log(NumberInArray)
     GetDataFromStorage()
     Data[NumberInArray].Score += ScoreMultiply
     ExportDataToStorage()
@@ -155,6 +165,7 @@ function Add5(NumberInArray){
 function Subtract5(NumberInArray){
     let ScoreMultiply = Number(document.getElementById("ScoreMultiply").value)
     if(ScoreMultiply == 0){ScoreMultiply = 1}
+    //console.log(NumberInArray)
     GetDataFromStorage()
     Data[NumberInArray].Score -= ScoreMultiply
     ExportDataToStorage()
