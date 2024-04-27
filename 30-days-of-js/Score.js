@@ -18,6 +18,19 @@ function ClearStorage(){
 
 function NumberItems(){
     GetDataFromStorage()
+//sort
+    let length = Data.length
+    for(let i=0; i<(length-1);i++){
+        let score1 = Data[i].Score
+        for(let j=0; j<length;j++){
+            let score2 = Data[j].Score
+            if(score1> score2){
+                Data.splice(j,0,Data[i])
+                break
+            }
+        }
+        Data.splice((i+1),1)
+    }
     let Div = document.getElementById("ListOfScores")
     Div.innerHTML = ""
     if(Data.length == 0){return}
