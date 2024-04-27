@@ -41,7 +41,7 @@ function NumberItems(){
     
     let Div = document.getElementById("ListOfScores")
     Div.innerHTML = ""
-    if(Data.length == 0){return}
+    if(!Data){return}
     for(let i=0;i<Data.length;i++){
         let FirstName = Data[i].FirstName
         let LastName = Data[i].LastName
@@ -101,9 +101,6 @@ function NumberItems(){
 }
 function AddItem(){
     GetDataFromStorage()
-    if (!Data) {
-        Data = [];
-    }
     let FirstName = document.getElementById("FirstName").value
     let LastName = document.getElementById("LastName").value
     let Score = Number(document.getElementById("Score").value)
