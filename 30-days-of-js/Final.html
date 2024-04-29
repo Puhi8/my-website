@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head>
+    <title>Final project of the "30 days of JS corse"</title>
+    <link rel="stylesheet" href="Final.css">
+</head>
+<body>
+    <h1>World Countries data</h1>
+    <p id="NumberOfAllCountries"></p>
+    <p style="color: #18f;" id="NumberOfSelectedCountries"></p>
+    <input oninput="Search(true)" id="Search" type="text" placeholder="Search by: name, capital, language">
+    <div id="SortOptions">
+        <button class="buttonForSorting" id="SortName" onclick="SortByName()">
+            <p class="buttonP">Name</p>
+            <img class="arrow" id="arrowName" src="Final-img/arrow-black.png">
+        </button>
+        <button class="buttonForSorting" id="SortCapital" onclick="SortByCapital()">
+            <p class="buttonP">Capital</p> 
+            <img class="arrow" id="arrowCapital" src="Final-img/arrow-black.png">
+        </button>
+        <button class="buttonForSorting" id="SortPopulation" onclick="SortByPopulation()">
+            <p class="buttonP">Population</p>
+            <img class="arrow" id="arrowPopulation" src="Final-img/arrow-black.png">
+        </button>
+        <button class="buttonForSorting Graph" id="Graph" onclick="GraphicalDisplayByPopulation(true)">
+            <img class="graphImg" src="Final-img/1324046-200.png" >
+        </button>
+    </div>
+    <div id="countries">
+
+    </div>
+    <div id="GraphSettings">
+        <div class="buttonForGraph-div">
+            <button class="buttonForGraph" onclick="GraphicalDisplayByPopulation()">Population</button>
+            <button style="margin-left: 10px;" class="buttonForGraph" onclick="GraphicalDisplayLanguages()">Languages</button>            
+        </div>
+        <div class="checkbox-div">
+            <label for="showWorld" id="showWorldLabel">Do not show world data:</label>
+            <input onclick="GraphicalDisplayByPopulation()" type="checkbox" id="showWorld">
+        </div>        
+    </div>
+    <table id="GraphicalDisplay">
+
+    </table> 
+</body>
+<script src="Final.js"></script>
+</html>

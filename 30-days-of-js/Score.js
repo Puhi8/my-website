@@ -20,10 +20,10 @@ function NumberItems(){
     GetDataFromStorage()    
     try{
         let length = Data.length
-        for(let i=0; i<(length);i++){
+        for(let i=0; i<length;i++){
             let PutInArray
             let score1 = Data[i].Score
-            for(let j=0; j<(length);j++){
+            for(let j=0; j<length;j++){
                 let score2 = Data[j].Score
                 if(score1 > score2){
                     Data.splice(j,0,Data[i])
@@ -31,9 +31,9 @@ function NumberItems(){
                     break
                 }
             }
-        if(PutInArray){
-           Data.splice((i+1),1) 
-        }
+            if(PutInArray){
+            Data.splice((i+1),1) 
+            }
         }
     }
     catch(err){console.log(err)}
@@ -101,6 +101,9 @@ function NumberItems(){
 }
 function AddItem(){
     GetDataFromStorage()
+    if (!Data) {
+        Data = [];
+    }
     let FirstName = document.getElementById("FirstName").value
     let LastName = document.getElementById("LastName").value
     let Score = Number(document.getElementById("Score").value)

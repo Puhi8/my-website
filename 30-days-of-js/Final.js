@@ -1,4 +1,4 @@
-const countries_data = [
+const CountryData = [
 	{
 			"name": "Afghanistan",
 			"capital": "Kabul",
@@ -2114,7 +2114,7 @@ const countries_data = [
 			"area": 238391
 	},
 	{
-			"name": "Russia",
+			"name": "Russian Federation",
 			"capital": "Moscow",
 			"languages": [
 					"Russian"
@@ -2725,7 +2725,7 @@ const countries_data = [
 			"area": 83600
 	},
 	{
-			"name": "UK",
+			"name": "United Kingdom of Great Britain and Northern Ireland",
 			"capital": "London",
 			"languages": [
 					"English"
@@ -2736,7 +2736,7 @@ const countries_data = [
 			"area": 242900
 	},
 	{
-			"name": "USA",
+			"name": "United States of America",
 			"capital": "Washington, D.C.",
 			"languages": [
 					"English"
@@ -2862,134 +2862,261 @@ const countries_data = [
 			"area": 390757
 	}
 ]
-let countries_population_InOrder = []
-let countries_population_InOrder_number = []
-let language_arrey = []
-let language_arrey_numbers = []
+//get world data
+let World = {
+    "name": "World",
+    "population": 0,
+    "language": undefined
+}
+for(let i=0;i<CountryData.length;i++){
+    World.population += CountryData[i].population
+}
+let SortMethod = "Name"
+let SortWay = true
+let graphMethod = "Population"
+let ItemsInUse = []
 
-///population///
-for (let i=0; i<countries_data.length; i++){
-    var countrie =  countries_data[i].name
-    var population = countries_data[i].population
-	let AlreadyInTheArrey = false
-    for (let j=0; j<=countries_population_InOrder.length; j++ ){
-        if (population > countries_population_InOrder_number[j]&& !AlreadyInTheArrey){
-            countries_population_InOrder.splice(j, 0, countrie)
-            countries_population_InOrder_number.splice(j, 0, population)
-			AlreadyInTheArrey = true
-            break
+
+
+function Search(OutputGraph){
+    const searchInput = document.getElementById("Search").value.toLowerCase();
+    if (searchInput === "") {ItemsInUse = CountryData;} 
+    else {
+        ItemsInUse = CountryData.filter(country => {
+            const nameIncludes = country.name.toLowerCase().includes(searchInput)
+            const capitalIncludes = String(country.capital).toLowerCase().includes(searchInput)
+            let languagesInclude
+            try{
+            languagesInclude = country.languages.some(language =>
+                language.toLowerCase().includes(searchInput)
+            )
+            }
+            catch(err){}
+            return nameIncludes || capitalIncludes || languagesInclude
+        })
+    }
+    Output()
+    if(OutputGraph){
+        switch (graphMethod){
+            case "Population":
+                GraphicalDisplayByPopulation()
+                break
+            case "Languages":
+                GraphicalDisplayLanguages()
+                break
         }
     }
-	if (!AlreadyInTheArrey){
-		countries_population_InOrder.push(countrie)
-		countries_population_InOrder_number.push(population)
+}
+function Output(){
+    CheckSortingSettings()
+    let OutputDiv = document.getElementById("countries")
+    document.getElementById("NumberOfAllCountries").textContent = `Curently we have ${CountryData.length} countries`
+    document.getElementById("NumberOfSelectedCountries").textContent = `Showing ${ItemsInUse.length} countries`
+    OutputDiv.innerHTML = ""
+    for(let i=0;i<ItemsInUse.length;i++){
+//get neaded data
+        let Name = ItemsInUse[i].name
+        let Capital = ItemsInUse[i].capital
+        let Population = ItemsInUse[i].population
+        let Languages = ItemsInUse[i].languages
+        let FlagSorce = ItemsInUse[i].flag
+//clear world
+        if(Name == "World"){
+            ItemsInUse.splice(i,1)
+            break
+        }
+//create elements
+        let DivOfItems = document.createElement("div")
+        let Flag = document.createElement("img")
+        let NameText = document.createElement("p")
+        let CapitalText = document.createElement("p")
+        let LanguagesText = document.createElement("p")
+        let PopulationText = document.createElement("p")
+//give proper class/src/text
+        Flag.src = FlagSorce
+        Flag.classList.add("Flag")
+        NameText.textContent = Name
+        NameText.classList.add("Name")
+        CapitalText.textContent = `Capital: ${Capital}` 
+        try{
+            LanguagesText.textContent = `Languages: ${Languages.join(", ")}` 
+        }
+        catch(err){
+            console.log(FlagSorce)
+            console.log(Name)
+        }
+        PopulationText.textContent = `Population: ${Population}` 
+        DivOfItems.classList.add("IndividualCountry")
+//combine everithing
+        DivOfItems.appendChild(Flag)
+        DivOfItems.appendChild(NameText)
+        DivOfItems.appendChild(CapitalText)
+        DivOfItems.appendChild(LanguagesText)
+        DivOfItems.appendChild(PopulationText)
+        OutputDiv.appendChild(DivOfItems)        
+    }
+}
+
+function GraphicalDisplayByPopulation(scroll){
+	document.getElementById("showWorld").classList.remove("displayNone")
+	document.getElementById("showWorldLabel").classList.remove("displayNone")
+    graphMethod = "Population"
+    const discardWorld = document.getElementById("showWorld").checked
+    displayGraph(ItemsInUse, "population", discardWorld)
+	if(scroll){
+		document.getElementById("GraphicalDisplay").scrollIntoView()
 	}
 }
-countries_population_InOrder.splice(0, 0, "World")
-countries_population_InOrder_number.splice(0, 0, sumOfArray(countries_population_InOrder_number))
+function GraphicalDisplayLanguages(){
+	document.getElementById("showWorld").classList.add("displayNone")
+	document.getElementById("showWorldLabel").classList.add("displayNone")
+    graphMethod = "Languages"
+//gather all languages
+    let languagesData = []
+    for (let i = 0; i < ItemsInUse.length; i++) {
+        let languages = ItemsInUse[i].languages
+        for (let j = 0; j < languages.length; j++) {
+            let languageTeste = languages[j]
+            let AlreadyInTheArray = false;
+            for (let k = 0; k < languagesData.length; k++) {
+                if (languagesData[k].name == languageTeste) {
+                    languagesData[k].number++
+                    AlreadyInTheArray = true
+                    break
+                }
+            }
+            if (!AlreadyInTheArray) {
+                let newLanguage = { "name": languageTeste, "number": 1 }
+                languagesData.push(newLanguage)
+            }
+        }
+    }
+    displayGraph(languagesData, "number", true)
+}
 
-///language///
-//add / count languages
-for (let i=0; i<countries_data.length; i++){
-	let languages = countries_data[i].languages
-	for(let j=0;j<languages.length;j++){
-		let languageInProces = languages[j]
-		var AlreadyInTheArrey = false
-		for(let k=0; k<language_arrey.length;k++){
-			if (languageInProces == language_arrey[k] && !AlreadyInTheArrey){
-				language_arrey_numbers[k]++
-				AlreadyInTheArrey=true
-				break
-			}	
-		}
-		if (!AlreadyInTheArrey){
-		language_arrey.push(languageInProces)
-		language_arrey_numbers.push(1)
-		}		
+
+function displayGraph(data, key, disincludeWorld){
+    Search(false) 
+	if(!disincludeWorld){
+        data.splice(0,0,World)
+    }
+    let itemsInGraph = SortObjectsNumerically(data, key).reverse()
+
+    let table = document.getElementById("GraphicalDisplay")
+    table.innerHTML = ""
+//create heading
+    let tRow = document.createElement("tr")
+    let thName = document.createElement("th")
+    let thDiv = document.createElement("th")
+    let thNumber = document.createElement("th")
+    thName.classList.add("GraphicalName")
+    thName.textContent = "Name"
+    thDiv.classList.add("GraphicalDiv")
+    thNumber.classList.add("GraphicalNumber")
+    thNumber.textContent = "Number"
+    tRow.appendChild(thName)
+    tRow.appendChild(thDiv)
+    tRow.appendChild(thNumber)
+    table.appendChild(tRow)
+//create table
+    let length = 10
+    if(itemsInGraph.length < 10){length = itemsInGraph.length}
+    for(let i=0;i<length;i++){
+        let curentData = itemsInGraph[i]
+        let mutiplayer = curentData[key] / itemsInGraph[0][key] * 100
+    //create elements
+        let tRow = document.createElement("tr")
+        let tName = document.createElement("td")
+        let tGraph = document.createElement("td")
+        let tGraphDiv = document.createElement("div")
+        let tNumber = document.createElement("td")
+    //give proper text/style
+        tName.textContent = curentData.name
+        tNumber.textContent = curentData[key]
+        tGraphDiv.style.width = `${mutiplayer}%`
+        tGraphDiv.classList.add("graphicalDiv")
+    //combine everithing
+        tGraph.appendChild(tGraphDiv)
+        tRow.appendChild(tName)
+        tRow.appendChild(tGraph)
+        tRow.appendChild(tNumber)
+        table.appendChild(tRow)  
+    }
+    if(!disincludeWorld){
+        data.shift()
+    } 
+}
+
+///Simple finctions///
+//Find right method
+function CheckSortingSettings(){
+//hide all arrows
+	document.getElementById("arrowName").style.display = "none"
+	document.getElementById("arrowCapital").style.display = "none"
+	document.getElementById("arrowPopulation").style.display = "none"
+	let arrow
+    switch(SortMethod){
+        case "Name":
+            ItemsInUse = SortObjectsAlphabetically(ItemsInUse, "name")
+            if(!SortWay){ItemsInUse.reverse()}
+			arrow = document.getElementById("arrowName")
+            break
+        case "Capital":
+            ItemsInUse = SortObjectsAlphabetically(ItemsInUse, "capital")
+            if(!SortWay){ItemsInUse.reverse()}
+			arrow = document.getElementById("arrowCapital")
+            break
+        case "Population":
+            ItemsInUse = SortObjectsNumerically(ItemsInUse, "population")
+            if(!SortWay){ItemsInUse.reverse()}
+			arrow = document.getElementById("arrowPopulation")
+            break
+    }
+//display arrow
+	arrow.style.display = "block"
+	if(SortWay){
+		arrow.style.rotate = "0deg"
+	}
+	else{
+		arrow.style.rotate = "180deg"
 	}
 }
-//sort
-var length = language_arrey_numbers.length
-for (let i=0; i<length;i++){
-	let curentLanguage = language_arrey[i]
-	let curentLanguageNumber  = language_arrey_numbers[i]
-	var AlreadyInTheArrey = false
-	for(let j=0; j<length;j++){
-		if(curentLanguageNumber == 1){
-			language_arrey_numbers.push(curentLanguageNumber)
-			language_arrey.push(curentLanguage)	
-			AlreadyInTheArrey = true
-			break
-		}
-		if(curentLanguageNumber>language_arrey_numbers[j] && !AlreadyInTheArrey){
-			language_arrey_numbers.splice(j,0,curentLanguageNumber)
-			language_arrey.splice(j,0,curentLanguage)
-			AlreadyInTheArrey=true
-			break
-		}
-	}
-	if(!AlreadyInTheArrey){
-		language_arrey_numbers.push(curentLanguageNumber)
-		language_arrey.push(curentLanguage)	
-	}
-	var place = i+1
-	language_arrey_numbers.splice(place,1)
-	language_arrey.splice(place,1)
+//Get sorting info
+function SortByName(){
+    if(SortMethod == "Name"){SortWay = !SortWay}
+    else{SortMethod = "Name";SortWay = true}
+    Output()
+}
+function SortByCapital(){
+    if(SortMethod == "Capital"){SortWay = !SortWay}
+    else{SortMethod = "Capital";SortWay = true}
+    Output()
+}
+function SortByPopulation(){
+    if(SortMethod == "Population"){SortWay = !SortWay}
+    else{SortMethod = "Population";SortWay = true}
+    Output()
 }
 
-function Population(){
-//is the world visable?
-	const ShowWorld = (document.getElementById("ShowWorld")).checked
-	var placeToSlice
-	if(ShowWorld){placeToSlice = 1}
-	else{placeToSlice = 0}
 
-	const TopTenPopulationNumber = countries_population_InOrder_number.slice(placeToSlice,(placeToSlice+10))
-	const TopTenPopulationName = countries_population_InOrder.slice(placeToSlice,(placeToSlice+10))
-	for(let i=0; i<10; i++){
-		var place = i+1		//to prevent undifined
-		var procenteage = TopTenPopulationNumber[i] / TopTenPopulationNumber[0] * 100
-	//get elements from hrml
-		let Name = document.getElementById(`Name${place}`)
-		let Number = document.getElementById(`Number${place}`)
-		let GraphicalDiv = document.getElementById(`Graphical${place}`)
-	//OUTPUT
-		Name.innerHTML = TopTenPopulationName[i]
-		Number.innerHTML = TopTenPopulationNumber[i]
-		GraphicalDiv.classList.add("div-ready")
-		GraphicalDiv.style.width = `${procenteage}%`
-
-	}
-//hide / display checkbox
-	(document.getElementById("ShowWorld")).style.removeProperty("display");
-	(document.getElementById("ShowWorld-label")).style.removeProperty("display");
+//sorte options
+function SortObjectsAlphabetically(array, key) {
+    return array.sort((a, b) => {
+        if (a[key] && b[key]) {
+            return a[key].localeCompare(b[key])
+        }
+        return 0
+    })
+}
+function SortObjectsNumerically(array, key) {
+    return array.sort((a, b) => {
+        const numA = Number(a[key])
+        const numB = Number(b[key])
+        if (!isNaN(numA) && !isNaN(numB)) {
+            return numA - numB
+        }
+        return 0
+    })
 }
 
-function Languages(){
-	const TopTenLanguageNumber = language_arrey_numbers.slice(0,10)
-	const TopTenLanguageName = language_arrey.slice(0,10)
-	for(let i=0; i<10; i++){
-		var place = i+1		//to prevent undifined
-		var procenteage = TopTenLanguageNumber[i] / TopTenLanguageNumber[0] * 100
-	//get elements from hrml
-		let Name = document.getElementById(`Name${place}`)
-		let Number = document.getElementById(`Number${place}`)
-		let GraphicalDiv = document.getElementById(`Graphical${place}`)
-	//OUTPUT
-		Name.innerHTML = TopTenLanguageName[i]
-		Number.innerHTML = TopTenLanguageNumber[i]
-		GraphicalDiv.classList.add("div-ready")
-		GraphicalDiv.style.width = `${procenteage}%`
-
-	}	
-//hide / display checkbox	
-	(document.getElementById("ShowWorld")).style.display = "none";
-	(document.getElementById("ShowWorld-label")).style.display = "none";
-}
-
-function sumOfArray(arr){
-    var sum = 0
-    arr.forEach(num => sum += num)
-    return sum
-}
-Population()
+Search()

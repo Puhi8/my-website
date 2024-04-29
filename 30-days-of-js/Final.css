@@ -1,0 +1,165 @@
+body{
+    background-color: #ddd;
+    min-width: 550px;
+}
+/*head*/
+h1{
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 0;
+}
+p{
+    overflow:visible;
+    text-align: center;
+    font-size: 15px;
+}
+/*search / sort*/
+#SortOptions{
+    display: flex;
+    align-items:center;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+}
+#Search{
+    display: block;
+    width: 70%;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    margin-top: 10px;
+    border-radius: 20px;
+    font-size: 1em;
+}
+.buttonForSorting{
+    display: flex;
+    justify-content: flex-end;
+    height: 55px;
+    width: 120px;
+    margin-right: 20px;
+    text-align: center;
+    background-color: #dd0;
+    border-radius: 10px;
+    border-color: #000;
+    border-width: 4px;
+    border-style: solid;
+}
+.buttonP{
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: center;
+    font-size: large;
+}
+.arrow{
+    height: 95%;
+    width: 20px;
+}
+.Graph{
+    width: fit-content;
+}
+.graphImg{
+    height: 100%;
+    width: auto;
+}
+
+/*main display*/
+#countries{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 10px; 
+    max-width: 100%;
+    margin-bottom: 80px;
+}
+.Flag{
+    width: 95%;
+    height: auto;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 2px;
+    border-style: solid;
+    border-color: #000;
+}
+.Name{
+    font-size: large;
+    color: #c80;
+    font-size: large;
+    text-align: center;
+    font-weight: bold;
+}
+.IndividualCountry{
+    background-color: #fff;
+    width: fit-content;
+    padding: 9px;
+    border-radius: 9px;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #000;
+}
+
+/*graph*/
+#GraphSettings{
+    width: fit-content;
+    height: fit-content;
+    background-color: #0ff;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #000;
+}
+.buttonForGraph-div{
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 15px;
+    
+}
+.buttonForGraph{
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    background-color: #dd0;
+    border-radius: 7px;
+    border-color: #000;
+    border-width: 2px;
+    border-style: solid;
+}
+.checkbox-div{
+    display: block;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+#GraphicalDisplay{
+    width: 97%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 300px;
+}
+.GraphicalName{
+    width: 150px;
+}
+.GraphicalNumber{
+    width: 70px;
+}
+td{
+    text-align: center;
+    height: 36px;
+}
+.graphicalDiv{
+    background-color: #000;
+    height: 35px;
+    margin-left: 0;
+    margin-right: auto;
+}
+
+
+.displayNone{
+    display: none;
+}
