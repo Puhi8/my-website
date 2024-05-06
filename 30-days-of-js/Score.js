@@ -146,7 +146,7 @@ function AddItem(){
 }
 
 function DelateItem(NumberInArray){
-    let DoIt = confirm("DELATE?")
+    let DoIt = confirm("DELETE?")
     if(DoIt){
         GetDataFromStorage()
         Data.splice(NumberInArray,1)
