@@ -1,0 +1,34 @@
+img{
+   height: 60px;
+   width: auto;
+}
+.error{
+   font-weight: bolder;
+   color: #f00;
+}
+#listOfItemsInUse{
+   list-style-type: none;
+   min-height: 200px;
+   max-width: 45%;
+   min-width: 20%;
+   width: fit-content;
+   float: left;
+   margin-left: 20px;
+   padding: 20px;
+   border-color: #000;
+   border-width: 5px;
+   border-style: solid;
+}
+#outputList{
+   list-style-type: none;
+   min-height: 200px;
+   max-width: 45%;
+   min-width: 20%;
+   width: fit-content;
+   float: right;
+   margin-right: 20px;
+   padding: 20px;
+   border-color: #000;
+   border-width: 5px;
+   border-style: solid;
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<head>
+   <title>Combinations</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <h1>Combinations maker</h1>
+   <p></p>
+   <input type="number" id="numberOfItemsInOneCombination" placeholder="number in one grout">
+   <input type="text" id="itemInput" placeholder="item to add">
+   <button onclick="addItem()" id="addItemButton">add this items</button>
+   <button onclick="combine()" id="combineButton">Combine</button>
+   <input type="text" id="joinWith" placeholder="join items with:">
+   <div class="lists">
+      <ul id="listOfItemsInUse"></ul>
+      <ul id="outputList"></ul>
+   </div>
+</body>
+<script src="script.js"></script>
+</html>

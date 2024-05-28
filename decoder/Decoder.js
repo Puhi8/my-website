@@ -41,6 +41,6 @@ function decode(){
     i++
     }
   } 
-  document.getElementById("output").textContent = output
+  document.getElementById("output").textContent = output.join(", ")
   output = []
 }
