@@ -52,8 +52,10 @@ function display(){
       text.textContent = listOfItems[i]
       button.appendChild(image)
       button.onclick = function(){removeItem(String(i))}
+      button.classList.add("delButton")
       listItem.appendChild(text)
       listItem.appendChild(button)
+      listItem.classList.add("listItem")
       list.appendChild(listItem)
    }
    combine(true)

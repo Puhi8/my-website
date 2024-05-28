@@ -5,12 +5,17 @@
 </head>
 <body>
    <h1>Combinations maker</h1>
-   <p></p>
-   <input type="number" id="numberOfItemsInOneCombination" placeholder="number in one grout">
-   <input type="text" id="itemInput" placeholder="item to add">
-   <button onclick="addItem()" id="addItemButton">add this items</button>
-   <button onclick="combine()" id="combineButton">Combine</button>
-   <input type="text" id="joinWith" placeholder="join items with:">
+   <div class="inputs">
+      <div class="addItemDiv">
+         <input type="text" id="itemInput" placeholder="item to add">
+         <button class="inputButton" onclick="addItem()" id="addItemButton">add this items</button>
+      </div>
+      <div class="combineDiv">
+         <input type="number" id="numberOfItemsInOneCombination" placeholder="number in one grout (2)">
+         <input type="text" id="joinWith" placeholder="join items with (, )">
+         <button class="inputButton" onclick="combine()" id="combineButton">Combine</button>
+      </div>
+   </div>
    <div class="lists">
       <ul id="listOfItemsInUse"></ul>
       <ul id="outputList"></ul>
