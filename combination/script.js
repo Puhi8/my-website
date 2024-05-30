@@ -29,7 +29,7 @@ const errorCheck = {
    notEnoughData: function(numberOfAllItems, numberRequested, sentByTheScript){
       if(numberRequested>numberOfAllItems && !sentByTheScript){
          if(!errorsInConsole.notEnoughData){
-            console.error("Not enough data")
+            console.warn("Not enough data")
             errorsInConsole.notEnoughData = true
          }
          return true
@@ -71,6 +71,8 @@ function displayOutput(){
       listItem.textContent = element.join(joinWith)
       outputList.appendChild(listItem)
    })
+   let numberOfAllCombinationsParagraph = document.getElementById("numberOfAllCombinations")
+   numberOfAllCombinationsParagraph.innerHTML = `There are <strong>${output.length}</strong> possible combinations.`
 }
 
 ///functions activated by buttons from HTML

@@ -2869,17 +2869,17 @@ let language_arrey_numbers = []
 
 ///population///
 for (let i=0; i<countries_data.length; i++){
-    var countrie =  countries_data[i].name
-    var population = countries_data[i].population
+   var countrie =  countries_data[i].name
+   var population = countries_data[i].population
 	let AlreadyInTheArrey = false
-    for (let j=0; j<=countries_population_InOrder.length; j++ ){
-        if (population > countries_population_InOrder_number[j]&& !AlreadyInTheArrey){
+   for (let j=0; j<=countries_population_InOrder.length; j++ ){
+      if (population > countries_population_InOrder_number[j]&& !AlreadyInTheArrey){
             countries_population_InOrder.splice(j, 0, countrie)
             countries_population_InOrder_number.splice(j, 0, population)
 			AlreadyInTheArrey = true
             break
-        }
-    }
+      }
+   }
 	if (!AlreadyInTheArrey){
 		countries_population_InOrder.push(countrie)
 		countries_population_InOrder_number.push(population)
@@ -2988,8 +2988,8 @@ function Languages(){
 }
 
 function sumOfArray(arr){
-    var sum = 0
-    arr.forEach(num => sum += num)
-    return sum
+   var sum = 0
+   arr.forEach(num => sum += num)
+   return sum
 }
 Population()
