@@ -41,7 +41,7 @@ function startNewGame(){
    for(let i=0;i<9;i++){
       let button = allButtonsInTable[i] 
       button.firstChild.src = "../img/Empty.png"
-      button.classList.remove("noBackgroundTransition")
+      button.classList.add("hover")
    }
    gameWasFinished = false
    let popUp = document.getElementById("winPopUpBlur")
@@ -60,7 +60,7 @@ function takeSpot(row, colum){
    grid[row][colum] = playerMap.get(player) //log to the grid
    let button = allButtonsInTable[getTableDataPlace(row,colum)]
    button.firstChild.src = playerImageMap.get(player)//display an image
-   button.classList.add("noBackgroundTransition")//no background-color change
+   button.classList.remove("hover")//no background-color change
    
    player = !player
    checkForWin()

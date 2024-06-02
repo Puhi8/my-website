@@ -22,13 +22,13 @@ tbody{
    height: 32%;
    margin-top: 3px;
    border: none;
+   
+}
+.gameTakePlaceButton.hover{
    transition: all 1s;
 }
-.gameTakePlaceButton:hover{
+.gameTakePlaceButton.hover:hover{
    background-color: #ccc;
-}
-.noBackgroundTransition:hover{
-   background-color: #fff;
 }
 .winPopUp{
    display: block;
@@ -89,13 +89,11 @@ tbody{
    top: 0;
    left:0;
 }
-
 .winPopUpElements{
    position: absolute;
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%);
-
 
    height: 70vh;
    width: 70vh;
@@ -119,7 +117,6 @@ tbody{
 .wonGamesBy{
    width: fit-content;
 }
-
 
 .borderDisplay-topLeft{
    border-bottom: var(--borderStyleForGameDisplay);
