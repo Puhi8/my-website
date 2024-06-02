@@ -73,6 +73,8 @@ function displayOutput(){
    })
    let numberOfAllCombinationsParagraph = document.getElementById("numberOfAllCombinations")
    numberOfAllCombinationsParagraph.innerHTML = `There are <strong>${output.length}</strong> possible combinations.`
+   let numberOfAllItemsInList = document.getElementById("numberOfItemsInList")
+   numberOfAllItemsInList.innerHTML = `There are <strong>${listOfItems.length}</strong> items in the list.`
 }
 
 ///functions activated by buttons from HTML

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<head>
+   <title>Tic-tac-toe</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+   <h1>My Tic-tac-toe game</h1>
+   <div class="gameDiv">
+      <button class="gameTakePlaceButton border-topLeft" onclick="takeSpot(0,0)"><img class="gameImg" src="../img/Empty.png"></button>
+      <button class="gameTakePlaceButton border-topCenter" onclick="takeSpot(0,1)"><img class="gameImg" src="../img/Empty.png"></button>
+      <button class="gameTakePlaceButton border-topRight" onclick="takeSpot(0,2)"><img class="gameImg" src="../img/Empty.png"></button>
+      <button class="gameTakePlaceButton border-centerLeft" onclick="takeSpot(1,0)"><img class="gameImg" src="../img/Empty.png"></button>
+      <button class="gameTakePlaceButton border-centerCenter" onclick="takeSpot(1,1)"><img class="gameImg" src="../img/Empty.png"></button>
+      <button class="gameTakePlaceButton border-centerRight" onclick="takeSpot(1,2)"><img class="gameImg" src="../img/Empty.png"></button>
+      <button class="gameTakePlaceButton border-bottomLeft" onclick="takeSpot(2,0)"><img class="gameImg" src="../img/Empty.png"></button>
+      <button class="gameTakePlaceButton border-bottomCenter" onclick="takeSpot(2,1)"><img class="gameImg" src="../img/Empty.png"></button>
+      <button class="gameTakePlaceButton border-bottomRight" onclick="takeSpot(2,2)"><img class="gameImg" src="../img/Empty.png"></button>
+   </div>   
+   <div id="winPopUpBlur" class="blurred" style="display: none;"><div class="winPopUpElements">
+      <p id="winnerDisplayed" class="winnerdisplayed">Winner is: XXXXXX</p>
+      <div id="displayGame">
+         <img class="displayGameImg borderDisplay-topLeft">
+         <img class="displayGameImg borderDisplay-topCenter">
+         <img class="displayGameImg borderDisplay-topRight">
+         <img class="displayGameImg borderDisplay-centerLeft">
+         <img class="displayGameImg borderDisplay-centerCenter">
+         <img class="displayGameImg borderDisplay-centerRight">
+         <img class="displayGameImg borderDisplay-bottomLeft">
+         <img class="displayGameImg borderDisplay-bottomCenter">
+         <img class="displayGameImg borderDisplay-bottomRight">
+      </div>
+      <div class="wonGamesList">
+         <p id="wonGamesByCircle" class="wonGamesBy">circle won XX games</p>
+         <p id="wonGamesByCrosse" class="wonGamesBy">crosse won XX games</p>
+      </div>
+      <ol id="listOfAllGamesWon"></ol>
+      <button onclick="startNewGame()">start new game</button>
+   </div></div>
+</body>
+<script src="main.js"></script>
+</html>
