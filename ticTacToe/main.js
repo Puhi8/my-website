@@ -16,9 +16,7 @@ let allButtonsInTable = document.getElementsByClassName("gameDiv")[0].children
 let gameWasFinished = false
 let winner
 //get win history
-let winHistory
-try{winHistory = JSON.parse(localStorage.getItem("winHistory"))}
-catch(err){winHistory = []}
+let winHistory = JSON.parse(localStorage.getItem("winHistory")) || []
 //manage win history in local storage
 const export_winHistory = (()=>{localStorage.setItem("winHistory", JSON.stringify(winHistory))})
 const clearLocalStorage = (()=>{localStorage.setItem("winHistory", JSON.stringify([])); winHistory=[]})
