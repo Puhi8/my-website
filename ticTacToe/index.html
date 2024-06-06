@@ -2,20 +2,33 @@
 <head>
    <title>Tic-tac-toe</title>
    <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="style_borders.css">
 </head>
 <body>
    <h1>My Tic-tac-toe game</h1>
-   <div class="gameDiv">
-      <button class="gameTakePlaceButton border-topLeft hover" onclick="takeSpot(0,0)"><img class="gameImg" src="../img/Empty.png"></button>
-      <button class="gameTakePlaceButton hover border-topCenter" onclick="takeSpot(0,1)"><img class="gameImg" src="../img/Empty.png"></button>
-      <button class="gameTakePlaceButton hover border-topRight" onclick="takeSpot(0,2)"><img class="gameImg" src="../img/Empty.png"></button>
-      <button class="gameTakePlaceButton hover border-centerLeft" onclick="takeSpot(1,0)"><img class="gameImg" src="../img/Empty.png"></button>
-      <button class="gameTakePlaceButton hover border-centerCenter" onclick="takeSpot(1,1)"><img class="gameImg" src="../img/Empty.png"></button>
-      <button class="gameTakePlaceButton hover border-centerRight" onclick="takeSpot(1,2)"><img class="gameImg" src="../img/Empty.png"></button>
-      <button class="gameTakePlaceButton hover border-bottomLeft" onclick="takeSpot(2,0)"><img class="gameImg" src="../img/Empty.png"></button>
-      <button class="gameTakePlaceButton hover border-bottomCenter" onclick="takeSpot(2,1)"><img class="gameImg" src="../img/Empty.png"></button>
-      <button class="gameTakePlaceButton hover border-bottomRight" onclick="takeSpot(2,2)"><img class="gameImg" src="../img/Empty.png"></button>
-   </div>   
+   <div class="homeScreenDiv">
+      <div class="gameDiv">
+         <button class="gameTakePlaceButton border-topLeft hover" onclick="takeSpot(0,0)"><img class="gameImg" src="../img/Empty.png"></button>
+         <button class="gameTakePlaceButton hover border-topCenter" onclick="takeSpot(0,1)"><img class="gameImg" src="../img/Empty.png"></button>
+         <button class="gameTakePlaceButton hover border-topRight" onclick="takeSpot(0,2)"><img class="gameImg" src="../img/Empty.png"></button>
+         <button class="gameTakePlaceButton hover border-centerLeft" onclick="takeSpot(1,0)"><img class="gameImg" src="../img/Empty.png"></button>
+         <button class="gameTakePlaceButton hover border-centerCenter" onclick="takeSpot(1,1)"><img class="gameImg" src="../img/Empty.png"></button>
+         <button class="gameTakePlaceButton hover border-centerRight" onclick="takeSpot(1,2)"><img class="gameImg" src="../img/Empty.png"></button>
+         <button class="gameTakePlaceButton hover border-bottomLeft" onclick="takeSpot(2,0)"><img class="gameImg" src="../img/Empty.png"></button>
+         <button class="gameTakePlaceButton hover border-bottomCenter" onclick="takeSpot(2,1)"><img class="gameImg" src="../img/Empty.png"></button>
+         <button class="gameTakePlaceButton hover border-bottomRight" onclick="takeSpot(2,2)"><img class="gameImg" src="../img/Empty.png"></button>
+      </div>
+      <div class="gamesStatistics">
+         <h2>Statistics</h2>
+         <div class="gamesStatisticsNumbers">
+            <p id="wonGamesByCircle"></p>
+            <p id="numberOfTies"></p>
+            <p id="wonGamesByCrosse"></p>
+         </div>
+         <ol id="listOfAllGames"></ol>
+         <button class="clearStorageButton" onclick="delateWinHistory()">CLEAR</button>
+      </div>
+   </div>
    <div id="winPopUpBlur" class="blurred" style="display: none;"><div class="winPopUpElements">
       <p id="winnerDisplayed" class="winnerdisplayed">Winner is: XXXXXX</p>
       <div id="displayGame">
@@ -30,10 +43,11 @@
          <img class="displayGameImg borderDisplay-bottomRight">
       </div>
       <div class="wonGamesList">
-         <p id="wonGamesByCircle" class="wonGamesBy">circle won XX games</p>
-         <p id="wonGamesByCrosse" class="wonGamesBy">crosse won XX games</p>
+         <p id="wonGamesByCirclePopUp" class="wonGamesBy"></p>
+         <p id="numberOfTiesPopUp" class="wonGamesBy"></p>
+         <p id="wonGamesByCrossePopUp" class="wonGamesBy"></p>
       </div>
-      <ol id="listOfAllGamesWon"></ol>
+      <ol id="listOfAllGamesPopUp"></ol>
       <button onclick="startNewGame()">start new game</button>
    </div></div>
 </body>
