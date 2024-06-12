@@ -3,6 +3,7 @@
    <title>Tic-tac-toe</title>
    <link rel="stylesheet" href="style.css">
    <link rel="stylesheet" href="style_borders.css">
+   <link rel="stylesheet" href="mobile.css">
 </head>
 <body>
    <h1>My Tic-tac-toe game</h1>
@@ -19,7 +20,7 @@
          <button class="gameTakePlaceButton hover border-bottomRight" onclick="takeSpot(2,2)"><img class="gameImg" src="../img/Empty.png"></button>
       </div>
       <div class="gamesStatistics">
-         <h2>Statistics</h2>
+         <h2 class="statisticsH2">Statistics</h2>
          <div class="gamesStatisticsNumbers">
             <p id="wonGamesByCircle"></p>
             <p id="numberOfTies"></p>
@@ -30,7 +31,7 @@
       </div>
    </div>
    <div id="winPopUpBlur" class="blurred" style="display: none;"><div class="winPopUpElements">
-      <p id="winnerDisplayed" class="winnerdisplayed">Winner is: XXXXXX</p>
+      <p id="winnerDisplayed" class="winnerdisplayed"></p>
       <div id="displayGame">
          <img class="displayGameImg borderDisplay-topLeft">
          <img class="displayGameImg borderDisplay-topCenter">

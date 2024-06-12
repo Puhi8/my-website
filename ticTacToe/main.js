@@ -47,13 +47,13 @@ const checkNumberOfWins = (()=>{
    winHistory.forEach((element)=>{
       switch(element){
          case "circle":
-            circleWins +=1
+            circleWins++
             break
          case "cross":
-            crossWins +=1
+            crossWins++
             break
          case "tie":
-            ties +=1
+            ties++
             break
          }
       })
@@ -152,7 +152,6 @@ function popUpWin(){
    export_winHistory()
    displayToGameStatistics()
 }
-
 
 function checkForWin(){
    //things that happen when the game is won

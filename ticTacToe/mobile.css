@@ -1,0 +1,17 @@
+@media (width < 1450px) {
+   .homeScreenDiv{
+      display: block;
+   }
+   .gamesStatistics{
+      width: 50%;
+      margin-left: 45vw;
+      margin-left: auto;
+      margin-right: auto;
+   }
+   .gameDiv{
+      margin: 0 auto 0 auto;
+   }
+   #listOfAllGames{
+      max-height: 20%;
+   }
+}
